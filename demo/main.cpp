@@ -35,4 +35,4 @@ int main(){
         jsonFile.close();
 
         std::cout << Students::ParseFile("jsonFile.json");
-};
+}
