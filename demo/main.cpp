@@ -1,7 +1,6 @@
 #include <iostream>
 #include <students.hpp>
 int main(){
-    TEST(StudentsTest, Parse){
         const char jsonString[] = R"({
         "items": [
         {
@@ -36,5 +35,4 @@ int main(){
         jsonFile.close();
 
         std::cout << Students::ParseFile("jsonFile.json");
-    }
 };
