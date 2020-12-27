@@ -78,7 +78,7 @@ string getAny(const any& valueToGet){
         std::stringstream ss;
         ss << std::setprecision(3) << std::any_cast<double>(valueToGet);
         return ss.str();
-    } else if (valueToGet.type() == typeid(nullptr_t)){
+    } else if (valueToGet.type() == typeid(std::nullptr_t)){
           return "null";
     } else {
         return "";
