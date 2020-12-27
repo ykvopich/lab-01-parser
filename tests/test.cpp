@@ -5,10 +5,10 @@
 
 TEST(StudentTest, fromJson) {
     json jsonStudent;
-    jsonStudent["name"] = "Mirage";
-    jsonStudent["group"] = "IBM2-36";
-    jsonStudent["avg"] = 4.6;
-    jsonStudent["debt"] = "null";
+    jsonStudent[NAME] = "Mirage";
+    jsonStudent[GROUP] = "IBM2-36";
+    jsonStudent[AVG] = 4.6;
+    jsonStudent[DEBT] = "null";
             Students student = Students::fromJson(jsonStudent);
     EXPECT_TRUE(student == Students(string("Mirage"), string("IBM2-36"), 4.6, nullptr));
 }
@@ -84,14 +84,14 @@ TEST(StudentsTest, Parse){
 
     std::stringstream ans;
     ans << Students::ParseFile("jsonFile.json");
-    std::string refString = R"(| name         | group | avg   | debt   |
-|--------------|-------|-------|--------|
-| Ivanov Petr  | 1     | 4.25  | null   |
-|--------------|-------|-------|--------|
-| Sidorov Ivan | 31    | 4     | C++    |
-|--------------|-------|-------|--------|
-| Pertov Nikita| IU8-31| 3.33  | 3 items|
-|--------------|-------|-------|--------|
+    string refString = R"(| name         | group | avg | debt   |
+|--------------|-------|-----|--------|
+| Ivanov Petr  | 1     | 4.25| null   |
+|--------------|-------|-----|--------|
+| Sidorov Ivan | 31    | 4   | C++    |
+|--------------|-------|-----|--------|
+| Pertov Nikita| IU8-31| 3.33| 3 items|
+|--------------|-------|-----|--------|
 )";
     EXPECT_EQ(ans.str(), refString);
 }

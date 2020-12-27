@@ -94,7 +94,7 @@ string Students::operator[](const string& valueName) const{
     } else if (valueName == DEBT) {
         return getAny(debt);
     } else {
-        throw std::runtime_error{"Ther is no value wuth the name " + valueName};
+        throw std::runtime_error{"There is no value with the name " + valueName};
     }
 }
 vector<Students> Students::ParseFile(const string& jsonPath) {
@@ -120,9 +120,9 @@ vector<Students> Students::ParseFile(const string& jsonPath) {
     return students;
 }
 
-std::ostream& operator<<(std::ostream &os, std::vector<Students> students) {
-    vector<size_t> length{4, 5, 6, 3};
-    for (const auto &student : students) {
+std::ostream& operator<<(std::ostream& os, std::vector<Students> students) {
+    vector<size_t> length{4, 5, 3, 4};
+    for (const auto& student : students) {
         if (student[NAME].length() > length[0]) {
             length[0] = student[NAME].length();
         }
@@ -158,7 +158,7 @@ std::ostream& operator<<(std::ostream &os, std::vector<Students> students) {
        << "| " << std::left << std::setw(length[2]) << student[AVG]
        << "| " << std::left << std::setw(length[3]) << student[DEBT]
        << "|\n" << separator << std::endl;
-    }
+   }
     return os;
 }
 

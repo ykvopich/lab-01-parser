@@ -31,10 +31,10 @@ class Students {
     static Students fromJson(const json& jsonStudents);
     Students() = default;
     Students(any n, any g, any a, any d);
+    static vector<Students> ParseFile(const string& jsonPath);
+
     bool operator == (const Students& refStudent);
     string operator[](const string& valueName) const;
-
-    static vector<Students> ParseFile(const string& jsonPath);
     friend std::ostream& operator<<(
             std::ostream& os, vector<Students> student);
 };
