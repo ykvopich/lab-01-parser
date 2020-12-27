@@ -20,7 +20,7 @@ HunterGate(
   SHA1 "35fa55bc1dfcf9f4d7264f8bb26cd1759ce1ae07"
 )
 
-# TODO: rename project and delete this comment
+
 project(lab-01-parser VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
@@ -33,8 +33,7 @@ hunter_add_package(nlohmann_json)
 find_package(nlohmann_json CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
-  # enum your files and delete this comment
-        sources/students.cpp demo/main.cpp)
+        sources/students.cpp)
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 
 add_executable(demo
@@ -50,7 +49,6 @@ target_link_libraries(demo ${PROJECT_NAME})
 
 if(BUILD_TESTS)
   add_executable(tests
-    # TODO: enum your files and delete this comment
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
@@ -75,7 +73,6 @@ if(BUILD_DOCS)
   find_package(Doxygen)
   doxygen_add_docs(docs include)
   install(DIRECTORY ${DOXYGEN_OUTPUT_DIRECTORY}/man DESTINATION share)
-  # add_dependencies(install docs) need to call target docs before install or package
 endif()
 
 include(CPackConfig.cmake)
