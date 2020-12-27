@@ -34,7 +34,7 @@ find_package(nlohmann_json CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
-        sources/students.cpp sources/parser.cpp)
+        sources/students.cpp)
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 
 add_executable(demo
